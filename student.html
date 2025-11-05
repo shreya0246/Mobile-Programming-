@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Create Student Profile | TutorLink</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card fade-in">
+    <h2>🎓 Create Your Student Profile</h2>
+    <form onsubmit="saveProfile(event, 'studentDashboard.html')">
+      <input type="text" placeholder="Full Name" required>
+      <input type="text" placeholder="Email" required>
+      <input type="text" placeholder="Phone Number">
+      <input type="text" placeholder="City / Country">
+      <input type="text" placeholder="Subjects You Need Help With">
+      <textarea placeholder="Learning Goals" rows="3"></textarea>
+      <label>Upload ID (Optional): <input type="file"></label>
+      <button type="submit">Save & Go to Dashboard</button>
+    </form>
+  </div>
+<script>
+function saveProfile(e, nextPage){
+  e.preventDefault();
+
+  // Collect form data
+  const student = {
+    name: document.querySelector('input[placeholder="Full Name"]').value,
+    email: document.querySelector('input[placeholder="Email"]').value,
+    phone: document.querySelector('input[placeholder="Phone Number"]').value,
+    city: document.querySelector('input[placeholder="City / Country"]').value,
+    subjects: document.querySelector('input[placeholder="Subjects You Need Help With"]').value,
+    goals: document.querySelector('textarea[placeholder="Learning Goals"]').value
+  };
+
+  // Get current students from localStorage
+  let students = JSON.parse(localStorage.getItem('students')) || [];
+  students.push(student);
+
+  // Save back to localStorage
+  localStorage.setItem('students', JSON.stringify(students));
+
+  // Redirect to student dashboard
+  window.location.href = nextPage;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Chat | TutorLink</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <h2>💬 Chat</h2>
+    <a href="index.html">Back to Home</a>
+  </nav>
+
+  <div class="chat-box fade-in">
+    <div class="messages" id="messages">
+      <div class="message received">Hi! I’m interested in your classes 😊</div>
+      <div class="message sent">Hello! Sure, let’s discuss your learning goals.</div>
+    </div>
+
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Type your message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

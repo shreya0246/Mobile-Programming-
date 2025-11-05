@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Create Teacher Profile | TutorLink</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card fade-in">
+    <h2>👩‍🏫 Create Your Teacher Profile</h2>
+    <form onsubmit="saveProfile(event, 'teacherDashboard.html')">
+      <input type="text" placeholder="Full Name" required>
+      <input type="text" placeholder="Email" required>
+      <input type="text" placeholder="Phone Number">
+      <input type="text" placeholder="City / Country">
+      <input type="text" placeholder="Subjects You Teach">
+      <input type="number" placeholder="Years of Experience">
+      <textarea placeholder="About You (Short Bio)" rows="3"></textarea>
+      <label>Upload ID / Certificate: <input type="file" required></label>
+      <button type="submit">Save & Go to Dashboard</button>
+    </form>
+  </div>
+<script>
+function saveProfile(e, nextPage){
+  e.preventDefault();
+
+  // Collect teacher form data
+  const teacher = {
+    name: document.querySelector('input[placeholder="Full Name"]').value,
+    email: document.querySelector('input[placeholder="Email"]').value,
+    phone: document.querySelector('input[placeholder="Phone Number"]').value,
+    city: document.querySelector('input[placeholder="City / Country"]').value,
+    subjects: document.querySelector('input[placeholder="Subjects You Teach"]').value,
+    experience: document.querySelector('input[placeholder="Years of Experience"]').value,
+    bio: document.querySelector('textarea[placeholder="About You (Short Bio)"]').value
+  };
+
+  // Get current teachers from localStorage
+  let teachers = JSON.parse(localStorage.getItem('teachers')) || [];
+  teachers.push(teacher);
+
+  // Save back to localStorage
+  localStorage.setItem('teachers', JSON.stringify(teachers));
+
+  // Redirect to teacher dashboard
+  window.location.href = nextPage;
+}
+</script>
+</body>
+</html>

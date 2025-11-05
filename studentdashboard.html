@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Student Dashboard | TutorLink</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <h2>TutorLink</h2>
+    <div class="nav-links">
+      <a href="#">🏠 Home</a>
+      <a href="#">👤 Profile</a>
+      <a href="#">👩‍🏫 Teachers</a>
+    </div>
+  </nav>
+
+<section class="card fade-in">
+  <h2>Recommended Teachers</h2>
+  <div id="teacherList"></div>
+</section>
+
+<script>
+const teacherList = document.getElementById('teacherList');
+const teachers = JSON.parse(localStorage.getItem('teachers')) || [];
+
+teachers.forEach(teacher => {
+  const div = document.createElement('div');
+  div.className = 'list-card';
+  div.innerHTML = `
+    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" width="60">
+    <div>
+      <h3>${teacher.name}</h3>
+      <p>Subjects: ${teacher.subjects} | Experience: ${teacher.experience} years</p>
+      <p>Bio: ${teacher.bio}</p>
+    </div>
+  `;
+  teacherList.appendChild(div);
+});
+</script>
+</body>
+</html>
