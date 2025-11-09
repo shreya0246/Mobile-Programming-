@@ -10,33 +10,84 @@
   <nav class="navbar">
     <h2>TutorLink</h2>
     <div class="nav-links">
-      <a href="#">🏠 Home</a>
-      <a href="#">👤 Profile</a>
-      <a href="#">🎓 Students</a>
+      <a href="#" id="homeLink">🏠 Home</a>
+      <a href="#" id="profileLink">👤 Profile</a>
+      <a href="#" id="studentsLink">🎓 Students</a>
     </div>
   </nav>
 
-<section class="card fade-in">
-  <h2>Students Looking for Tutors</h2>
-  <div id="studentList"></div>
+  <!-- HOME SECTION -->
+  <section id="homeSection" class="card fade-in">
+    <h2>Welcome to TutorLink Teacher Dashboard</h2>
+    <p>Find students who need your expertise. Search by subject or learning goals to connect with learners easily.</p>
+    
+    <input type="text" id="searchBar" placeholder="🔍 Search students by name or subject" style="width: 90%; padding: 8px; margin: 10px 0;">
+    
+    <h3>Students Looking for Tutors</h3>
+    <div id="studentList"></div>
+  </section>
+
+  <!-- PROFILE SECTION -->
+  <section id="profileSection" class="card fade-in" style="display: none;">
+    <h2>Your Profile</h2>
+    <div id="profileView">
+      <img id="profilePhoto" src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" width="80">
+      <p><strong>Name:</strong> <span id="profileName"></span></p>
+      <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+      <p><strong>Phone:</strong> <span id="profilePhone"></span></p>
+      <p><strong>Address:</strong> <span id="profileAddress"></span></p>
+      <p><strong>Experience:</strong> <span id="profileExperience"></span> years</p>
+      <p><strong>Qualification:</strong> <span id="profileQualification"></span></p>
+      <p><strong>Subjects:</strong> <span id="profileSubjects"></span></p>
+      <p><strong>Grade Level:</strong> <span id="profileGradeLevel"></span></p>
+      <p><strong>Skills:</strong> <span id="profileSkills"></span></p>
+      <p><strong>Interests:</strong> <span id="profileInterests"></span></p>
+      <p><strong>Preferred Students:</strong> <span id="profilePreferredStudents"></span></p>
+      <p><strong>Teaching Mode:</strong> <span id="profileMode"></span></p>
+      <p><strong>Bio:</strong> <span id="profileBio"></span></p>
+      <button id="editProfileBtn">✏️ Edit Profile</button>
+    </div>
+
+    <div id="profileEdit" style="display:none;">
+      <input type="text" id="editName" placeholder="Full Name">
+      <input type="email" id="editEmail" placeholder="Email">
+      <input type="text" id="editPhone" placeholder="Phone Number">
+      <input type="text" id="editAddress" placeholder="Address">
+      <input type="number" id="editExperience" placeholder="Experience (Years)">
+      <input type="text" id="editQualification" placeholder="Qualification">
+      <input type="text" id="editSubjects" placeholder="Subjects">
+      <input type="text" id="editGradeLevel" placeholder="Grade Level">
+      <textarea id="editSkills" placeholder="Teaching Skills"></textarea>
+      <textarea id="editInterests" placeholder="Interests"></textarea>
+      <textarea id="editPreferredStudents" placeholder="Preferred Students"></textarea>
+      <textarea id="editMode" placeholder="Teaching Mode"></textarea>
+      <textarea id="editBio" placeholder="Bio"></textarea>
+
+      <button id="saveProfileBtn">💾 Save Changes</button>
+      <button id="cancelEditBtn">❌ Cancel</button>
+    </div>
+  </section>
+
+  <!-- RESET TEST DATA BUTTON -->
+  <button id="resetData" style="margin-top:15px; background:#ff6666; color:white; padding:8px 12px; border:none; border-radius:5px; cursor:pointer;">
+    Reset Profiles
+  </button>
 </section>
 
-<script>
-const studentList = document.getElementById('studentList');
-const students = JSON.parse(localStorage.getItem('students')) || [];
 
-students.forEach(student => {
-  const div = document.createElement('div');
-  div.className = 'list-card';
-  div.innerHTML = `
-    <img src="https://cdn-icons-png.flaticon.com/512/2922/2922510.png" width="60">
-    <div>
-      <h3>${student.name}</h3>
-      <p>Subjects: ${student.subjects} | Goals: ${student.goals}</p>
+  <!-- STUDENTS SECTION -->
+  <section id="studentsSection" class="card fade-in" style="display: none;">
+    <h2>More Student Recommendations</h2>
+    <div id="moreStudents"></div>
+
+    <h3>💬 Chat with a Student</h3>
+    <div id="chatArea" style="border: 1px solid #ccc; padding: 10px; border-radius: 10px;">
+      <div id="chatMessages" style="height: 150px; overflow-y: auto; background: #f9f9f9; padding: 5px; border-radius: 5px; margin-bottom: 10px;"></div>
+      <input type="text" id="chatInput" placeholder="Type your message..." style="width: 80%; padding: 5px;">
+      <button id="sendBtn">Send</button>
     </div>
-  `;
-  studentList.appendChild(div);
-});
-</script>
+  </section>
+
+  <script src="script.js" defer></script>
 </body>
 </html>

@@ -10,34 +10,66 @@
   <nav class="navbar">
     <h2>TutorLink</h2>
     <div class="nav-links">
-      <a href="#">🏠 Home</a>
-      <a href="#">👤 Profile</a>
-      <a href="#">👩‍🏫 Teachers</a>
+      <a href="#" id="homeLink">🏠 Home</a>
+      <a href="#" id="profileLink">👤 Profile</a>
+      <a href="#" id="teachersLink">👩‍🏫 Teachers</a>
     </div>
   </nav>
 
-<section class="card fade-in">
-  <h2>Recommended Teachers</h2>
-  <div id="teacherList"></div>
-</section>
+  <!-- HOME SECTION -->
+  <section id="homeSection" class="card fade-in">
+    <h2>Welcome to TutorLink </h2>
+    <p>Find the perfect teacher for your learning journey. Use the search below to explore tutors based on subject or experience.</p>
+    
+    <input type="text" id="searchBar" placeholder="🔍 Search teachers by name or subject" style="width: 90%; padding: 8px; margin: 10px 0;">
+    
+    <h3>Recommended Teachers</h3>
+    <div id="teacherList"></div>
+  </section>
 
-<script>
-const teacherList = document.getElementById('teacherList');
-const teachers = JSON.parse(localStorage.getItem('teachers')) || [];
 
-teachers.forEach(teacher => {
-  const div = document.createElement('div');
-  div.className = 'list-card';
-  div.innerHTML = `
-    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" width="60">
-    <div>
-      <h3>${teacher.name}</h3>
-      <p>Subjects: ${teacher.subjects} | Experience: ${teacher.experience} years</p>
-      <p>Bio: ${teacher.bio}</p>
+  <!-- Profile Section -->
+  <section id="profileSection" class="card fade-in" style="display:none;">
+    <h2>Your Profile</h2>
+    <div id="profileView">
+      <p><strong>Name:</strong> <span id="profileName"></span></p>
+      <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+      <p><strong>Phone:</strong> <span id="profilePhone"></span></p>
+      <p><strong>Address:</strong> <span id="profileAddress"></span></p>
+      <p><strong>Subjects:</strong> <span id="profileSubjects"></span></p>
+      <p><strong>Grade Level:</strong> <span id="profileGradeLevel"></span></p>
+      <p><strong>Skills:</strong> <span id="profileSkills"></span></p>
+      <p><strong>Interests:</strong> <span id="profileInterests"></span></p>
+      <p><strong>Bio:</strong> <span id="profileBio"></span></p>
+      <button id="editProfileBtn">Edit Profile ✏️</button>
     </div>
-  `;
-  teacherList.appendChild(div);
-});
-</script>
+
+    <!-- Editable form for updating -->
+    <div id="profileEdit" style="display:none;">
+      <input type="text" id="editName" placeholder="Full Name">
+      <input type="email" id="editEmail" placeholder="Email">
+      <input type="text" id="editPhone" placeholder="Phone Number">
+      <input type="text" id="editAddress" placeholder="Address">
+      <input type="text" id="editSubjects" placeholder="Subjects">
+      <input type="text" id="editGradeLevel" placeholder="Grade Level">
+      <textarea id="editInterests" placeholder="Interests"></textarea>
+      <textarea id="editBio" placeholder="Bio"></textarea>
+
+      <button id="saveProfileBtn">Save Changes ✅</button>
+      <button id="cancelEditBtn">Cancel ❌</button>
+    </div>
+  </section>
+  <!-- TEACHERS SECTION -->
+  <section id="teachersSection" class="card fade-in" style="display: none;">
+    <h2>More Teacher Recommendations</h2>
+    <div id="moreTeachers"></div>
+    <h3>💬 Chat with a Teacher</h3>
+    <div id="chatArea" style="border: 1px solid #ccc; padding: 10px; border-radius: 10px;">
+      <div id="chatMessages" style="height: 150px; overflow-y: auto; background: #f9f9f9; padding: 5px; border-radius: 5px; margin-bottom: 10px;"></div>
+      <input type="text" id="chatInput" placeholder="Type your message..." style="width: 80%; padding: 5px;">
+      <button id="sendBtn">Send</button>
+    </div>
+  </section>
+  <script src="script.js"defer></script>
 </body>
 </html>

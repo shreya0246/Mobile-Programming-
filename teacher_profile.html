@@ -3,49 +3,76 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Create Teacher Profile | TutorLink</title>
+  <title>Teacher Profile Setup | TutorLink</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="card fade-in">
-    <h2>👩‍🏫 Create Your Teacher Profile</h2>
-    <form onsubmit="saveProfile(event, 'teacherDashboard.html')">
-      <input type="text" placeholder="Full Name" required>
-      <input type="text" placeholder="Email" required>
-      <input type="text" placeholder="Phone Number">
-      <input type="text" placeholder="City / Country">
-      <input type="text" placeholder="Subjects You Teach">
-      <input type="number" placeholder="Years of Experience">
-      <textarea placeholder="About You (Short Bio)" rows="3"></textarea>
-      <label>Upload ID / Certificate: <input type="file" required></label>
-      <button type="submit">Save & Go to Dashboard</button>
-    </form>
-  </div>
-<script>
-function saveProfile(e, nextPage){
-  e.preventDefault();
 
-  // Collect teacher form data
+  <section id="teacherProfile" class="screen">
+    <div class="card profile-form fade-in">
+      <h2>Teacher Profile Setup</h2>
+      <p>Please fill out your teaching details below:</p>
+
+      <form id="teacherForm">
+        <input type="text" id="teacherName" placeholder="Full Name" required>
+        <input type="email" id="teacherEmail" placeholder="Email" required>
+        <input type="text" id="teacherPhone" placeholder="Phone Number" required>
+        <input type="text" id="teacherAddress" placeholder="Address (City, Country)" required>
+        <input type="number" id="teacherExperience" placeholder="Years of Teaching Experience" required>
+        <input type="text" id="teacherQualification" placeholder="Highest Qualification (e.g., M.Sc, B.Ed)">
+        <input type="text" id="teacherSubjects" placeholder="Subjects You Teach (e.g., Math, Physics)">
+        <input type="text" id="teacherGradeLevel" placeholder="Grade Level (e.g., High School, College)">
+        <textarea id="teacherSkills" placeholder="Teaching Skills (communication, patience, technology use)"></textarea>
+        <textarea id="teacherPreferredStudents" placeholder="Preferred Type of Students"></textarea>
+        <textarea id="teacherMode" placeholder="Teaching Mode (Online / Offline)" ></textarea>
+        <textarea id="teacherBio" placeholder="Short Bio (Tell students about yourself)" rows="3"></textarea>
+
+        <label class="upload-label">Upload Profile Picture:
+          <input type="file" id="teacherPhoto" accept="image/*">
+        </label>
+
+<button type="button" id="saveTeacherProfileBtn">Save Profile ✅</button>
+
+      </form>
+    </div>
+  </section>
+
+<script>
+function saveTeacherProfile() {
+  // Collect form data
   const teacher = {
-    name: document.querySelector('input[placeholder="Full Name"]').value,
-    email: document.querySelector('input[placeholder="Email"]').value,
-    phone: document.querySelector('input[placeholder="Phone Number"]').value,
-    city: document.querySelector('input[placeholder="City / Country"]').value,
-    subjects: document.querySelector('input[placeholder="Subjects You Teach"]').value,
-    experience: document.querySelector('input[placeholder="Years of Experience"]').value,
-    bio: document.querySelector('textarea[placeholder="About You (Short Bio)"]').value
+    name: document.getElementById('teacherName').value.trim(),
+    email: document.getElementById('teacherEmail').value.trim(),
+    phone: document.getElementById('teacherPhone').value.trim(),
+    address: document.getElementById('teacherAddress').value.trim(),
+    experience: document.getElementById('teacherExperience').value.trim(),
+    qualification: document.getElementById('teacherQualification').value.trim(),
+    subjects: document.getElementById('teacherSubjects').value.trim(),
+    gradeLevel: document.getElementById('teacherGradeLevel').value.trim(),
+    skills: document.getElementById('teacherSkills').value.trim(),
+    interests: document.getElementById('teacherInterests').value.trim(),
+    preferredStudents: document.getElementById('teacherPreferredStudents').value.trim(),
+    mode: document.getElementById('teacherMode').value.trim(),
+    bio: document.getElementById('teacherBio').value.trim()
   };
 
-  // Get current teachers from localStorage
+  // Save to list of all teachers (for recommendations)
   let teachers = JSON.parse(localStorage.getItem('teachers')) || [];
   teachers.push(teacher);
-
-  // Save back to localStorage
   localStorage.setItem('teachers', JSON.stringify(teachers));
 
-  // Redirect to teacher dashboard
-  window.location.href = nextPage;
+  // Save current teacher's profile for dashboard
+  localStorage.setItem('teacherProfile', JSON.stringify(teacher));
+
+  // Alert and redirect to dashboard
+  alert("✅ Profile saved successfully!");
+  window.location.href = "teacher_dashboard.html"; // change filename if needed
 }
+
+// Attach function to button
+const saveBt n = document.getElementById('saveTeacherProfileBtn');
+saveBtn?.addEventListener('click', saveTeacherProfile);
 </script>
+
 </body>
 </html>

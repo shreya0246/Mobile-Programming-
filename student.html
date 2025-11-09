@@ -14,7 +14,10 @@
       <input type="text" placeholder="Email" required>
       <input type="text" placeholder="Phone Number">
       <input type="text" placeholder="City / Country">
+      <input type="text" placeholder="Interest">
+      <input type="text" placeholder="editSkills">
       <input type="text" placeholder="Subjects You Need Help With">
+
       <textarea placeholder="Learning Goals" rows="3"></textarea>
       <label>Upload ID (Optional): <input type="file"></label>
       <button type="submit">Save & Go to Dashboard</button>
@@ -34,12 +37,13 @@ function saveProfile(e, nextPage){
     goals: document.querySelector('textarea[placeholder="Learning Goals"]').value
   };
 
-  // Get current students from localStorage
+  // Save to list of all students (for recommendations)
   let students = JSON.parse(localStorage.getItem('students')) || [];
   students.push(student);
-
-  // Save back to localStorage
   localStorage.setItem('students', JSON.stringify(students));
+
+  // Save current student's profile for dashboard
+  localStorage.setItem('studentProfile', JSON.stringify(student));
 
   // Redirect to student dashboard
   window.location.href = nextPage;
