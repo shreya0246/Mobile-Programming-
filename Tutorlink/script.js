@@ -319,17 +319,3 @@ if (document.getElementById('teacherForm')) {
   });
 }
 
-/* ------------------------------
-   RESET TEST DATA
---------------------------------*/
-function resetData() {
-  localStorage.removeItem('teachers');
-  localStorage.removeItem('students');
-  localStorage.removeItem('teacherProfile');
-  localStorage.removeItem('studentProfile');
-  alert("✅ Test profiles cleared!");
-  location.reload();
-}
-
-const resetBtn = document.getElementById('resetData');
-resetBtn?.addEventListener('click', resetData);

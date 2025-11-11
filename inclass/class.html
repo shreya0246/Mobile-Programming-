@@ -1,6 +1,167 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="myScript.js" defer></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+   <script>
+    $(document).ready(function(){
+      $("#hideAll").click(function(){
+        $("body *").hide(500); 
+      });
+    });
+  </script>
+  <button id="hideAll">Hide Everything</button>
+<div class="Whole">
+  <!--  Change text -->
+  <div id="City">
+    <div class="city1">
+      <h2>London</h2>
+      <p id="Try">London is the capital of England.</p>
+      <button type="button" onclick="changeText()">Change Text</button>
+    </div>
+  </div>
+
+  <!-- Change image -->
+ <div id="City">
+  <div class="city5">
+    <h2>Paris</h2>
+    <!-- Starting image -->
+    <img id="cityImage" src="sakura.png" alt="Sakura" width="100">
+    <p>Paris is the capital of France.</p>
+    <button type="button" onclick="changeImage()">Change Image</button>
+  </div>
+</div>
+
+  <!-- 3 Change color -->
+  <div id="City1">
+    <div class="city2">
+      <h2>Tokyo</h2>
+      <p>Tokyo is the capital of Japan.</p>
+      <button type="button" onclick="changeColor()">Change Color</button>
+    </div>
+  </div>
+
+  <!-- 4 Hide content -->
+  <div id="City1">
+    <div class="city6">
+      <h2>Lima</h2>
+      <p id="hideContent">Lima is the capital of Peru.</p>
+      <button type="button" onclick="hideContentFunction()">Hide Content</button>
+    </div>
+  </div>
+
+  <!-- 5 Show hidden content -->
+  <div id="City2">
+    <div class="city8">
+      <h2>America</h2>
+      <p id="showContent" style="display:none;">America is the capital of United States.</p>
+      <button type="button" onclick="showContentFunction()">Show Content</button>
+    </div>
+  </div>
+
+  <div id="City2">
+    <div class="city3">
+      <h2>London</h2>
+      <p>London is the capital of England.</p>
+            <p id='addNumberFunction'></p>
+            <button type="button" onclick="document.getElementById('addNumberFunction').innerHTML = addNumberFunction()">Add</button>
+            <p id='subNumberFunction'></p>
+            <button type="button" onclick="document.getElementById('subNumberFunction').innerHTML = subNumberFunction()">Sub</button>
+            <p id='mulNumberFunction'></p>
+            <button type="button" onclick="document.getElementById('mulNumberFunction').innerHTML = mulNumberFunction()">Mul</button>
+            <p id='divNumberFunction'></p>
+            <button type="button" onclick="document.getElementById('divNumberFunction').innerHTML = divNumberFunction()">Div</button>
+    </div> 
+  </div>
+  <div id="City3">
+    <div class="city4">
+      <script>
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $("p").hide();
+  });
+  $("#show").click(function(){
+    $("p").show();
+  });
+});
+ 
+      </script>
+      <h2>Bangkok</h2>
+      <p>Bangkok is the capital of Thailand.</p>
+      <p>It is a beautiful city.</p>
+      
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+
+    </div>
+  </div>
+
+  <div id="City3">
+    <div class="city9">
+            <script>
+$(document).ready(function(){
+  $("input").focus(function(){
+    $(this).css("background-color", "cyan");
+  });
+  $("input").blur(function(){
+    $(this).css("background-color", "pink");
+  });
+});
+  </script>
+      <h2>China</h2>
+      <p id="Show">China is the capital of Beijing.</p>
+      Apply:<input type="text" name="fullname"><br>
+
+    </div>
+  </div>
+ 
+  <div id="Hi">
+    <div class="Bye">
+      <h1>About me</h1>
+      <p>I am Shreya.</p>
+      <button id="fontchange">Change</button>
+    </div>
+  </div>
+   <style>
+    h1, p {
+      font-size: 18px;
+      font-family: Arial, sans-serif;
+    }
+    .changed-font {
+      font-size: 20px;
+      font-family: 'Courier New', monospace;
+    }
+  </style>
+
+  <script>
+    $(document).ready(function() {
+      $("#fontchange").click(function() {
+        $("#Hi h1, #City11 p").toggleClass("changed-font");
+      });
+    });
+  </script>
+
+  <div id="Hello">
+    <div class="See">
+      <h2>Learn More</h2>
+      <p>I am testing.</p>
+    </div>
+  </div>
+   <script>
+    $(document).ready(function(){
+      $(".See").hover(
+        function(){ 
+          $(this).css("background-color", "lightblue"); 
+        },
+        function(){ 
+          $(this).css("background-color", "yellow"); 
+        }
+      );
+    });
+  </script>
+
 <style>
 .city1 {
   background-color: pink;
@@ -10,7 +171,20 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   display: flex;
 }
-
+ .Bye {
+       background-color: pink;
+  margin: 20px;
+  padding: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  display: flex;
+    }
+    .See {
+       background-color: rgb(146, 73, 86);
+  margin: 20px;
+  padding: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  display: flex;
+    }
 .city5 {
   background-color: rgb(110, 189, 123);
   color: white;
@@ -66,6 +240,7 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+
 .Whole {
   display: flex;
   flex-direction: column;
@@ -75,6 +250,15 @@
   background-color: rgb(207, 146, 66);
   padding: 20px;
 }
+#Hi{
+background-color: rgb(110, 182, 43);
+  padding: 20px;
+    }
+
+    #Hello {
+background-color: rgb(110, 182, 43);
+  padding: 20px;
+    }
 
 #City1 {
   background-color: rgb(238, 106, 205);
@@ -91,91 +275,5 @@
   background-color: rgb(105, 206, 119);
   padding: 20px;
 }
-</style>
-<script src="myScript.js" defer></script>
-</head>
-<body>
-
-<div class="Whole">
-
-  <!-- 1️⃣ Change text -->
-  <div id="City">
-    <div class="city1">
-      <h2>London</h2>
-      <p id="Try">London is the capital of England.</p>
-      <button type="button" onclick="changeText()">Change Text</button>
-    </div>
-  </div>
-
-  <!-- 2️⃣ Change image -->
- <div id="City">
-  <div class="city5">
-    <h2>Paris</h2>
-    <!-- Starting image -->
-    <img id="cityImage" src="sakura.png" alt="Sakura" width="100">
-    <p>Paris is the capital of France.</p>
-    <button type="button" onclick="changeImage()">Change Image</button>
-  </div>
-</div>
-
-  <!-- 3️⃣ Change color -->
-  <div id="City1">
-    <div class="city2">
-      <h2>Tokyo</h2>
-      <p>Tokyo is the capital of Japan.</p>
-      <button type="button" onclick="changeColor()">Change Color</button>
-    </div>
-  </div>
-
-  <!-- 4️⃣ Hide content -->
-  <div id="City1">
-    <div class="city6">
-      <h2>Lima</h2>
-      <p id="hideContent">Lima is the capital of Peru.</p>
-      <button type="button" onclick="hideContentFunction()">Hide Content</button>
-    </div>
-  </div>
-
-  <!-- 5️⃣ Show hidden content -->
-  <div id="City2">
-    <div class="city8">
-      <h2>America</h2>
-      <p id="showContent" style="display:none;">America is the capital of United States.</p>
-      <button type="button" onclick="showContentFunction()">Show Content</button>
-    </div>
-  </div>
-
-  <!-- Remaining sections (unchanged) -->
-  <div id="City2">
-    <div class="city3">
-      <h2>London</h2>
-      <p>London is the capital of England.</p>
-            <p id='addNumberFunction'></p>
-            <button type="button" onclick="document.getElementById('addNumberFunction').innerHTML = addNumberFunction()">Add</button>
-            <p id='subNumberFunction'></p>
-            <button type="button" onclick="document.getElementById('subNumberFunction').innerHTML = subNumberFunction()">Sub</button>
-            <p id='mulNumberFunction'></p>
-            <button type="button" onclick="document.getElementById('mulNumberFunction').innerHTML = mulNumberFunction()">Mul</button>
-            <p id='divNumberFunction'></p>
-            <button type="button" onclick="document.getElementById('divNumberFunction').innerHTML = divNumberFunction()">Div</button>
-
-    </div> 
-  </div>
-
-  <div id="City3">
-    <div class="city4">
-      <h2>Bangkok</h2>
-      <p>Bangkok is the capital of Thailand.</p>
-    </div>
-  </div>
-
-  <div id="City3">
-    <div class="city9">
-      <h2>China</h2>
-      <p id="Show">China is the capital of Beijing.</p>
-    </div>
-  </div>
-
-</div>
 </body>
 </html>

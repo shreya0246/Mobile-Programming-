@@ -22,7 +22,6 @@
         <input type="text" id="teacherQualification" placeholder="Highest Qualification (e.g., M.Sc, B.Ed)">
         <input type="text" id="teacherSubjects" placeholder="Subjects You Teach (e.g., Math, Physics)">
         <input type="text" id="teacherGradeLevel" placeholder="Grade Level (e.g., High School, College)">
-        <textarea id="teacherSkills" placeholder="Teaching Skills (communication, patience, technology use)"></textarea>
         <textarea id="teacherPreferredStudents" placeholder="Preferred Type of Students"></textarea>
         <textarea id="teacherMode" placeholder="Teaching Mode (Online / Offline)" ></textarea>
         <textarea id="teacherBio" placeholder="Short Bio (Tell students about yourself)" rows="3"></textarea>
@@ -49,8 +48,6 @@ function saveTeacherProfile() {
     qualification: document.getElementById('teacherQualification').value.trim(),
     subjects: document.getElementById('teacherSubjects').value.trim(),
     gradeLevel: document.getElementById('teacherGradeLevel').value.trim(),
-    skills: document.getElementById('teacherSkills').value.trim(),
-    interests: document.getElementById('teacherInterests').value.trim(),
     preferredStudents: document.getElementById('teacherPreferredStudents').value.trim(),
     mode: document.getElementById('teacherMode').value.trim(),
     bio: document.getElementById('teacherBio').value.trim()
@@ -66,12 +63,13 @@ function saveTeacherProfile() {
 
   // Alert and redirect to dashboard
   alert("✅ Profile saved successfully!");
-  window.location.href = "teacher_dashboard.html"; // change filename if needed
+  window.location.href = "teacherdashboard.html"; // change filename if needed
 }
 
 // Attach function to button
-const saveBt n = document.getElementById('saveTeacherProfileBtn');
+const saveBtn = document.getElementById('saveTeacherProfileBtn');
 saveBtn?.addEventListener('click', saveTeacherProfile);
+
 </script>
 
 </body>
