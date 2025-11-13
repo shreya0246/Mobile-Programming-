@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+  $("button").click(function(){
+    $("div").animate({ left: '100px' }, "slow")                         
+      .animate({ height: '300px', width: '300px', opacity: 0.5 }, "slow") 
+      .css("background-color", "#f8a1c4")                        
+      .find("p")
+        .css("color", "cyan")                                  
+        .animate({ fontSize: "2.5em" }, "slow")                    
+      .end()
+      .animate({ height: '95px', width: '140px', left: '0px', opacity: 1 }, "slow", function(){ 
+        $(this)
+          .css("background-color", "#a1e0f8")                     
+          .find("p")
+            .css({ color: "yellow", fontSize: "1.5em" });            
+      });
+  });
+});
+</script> 
+</head>
+<body>
+
+<button>Start Animation</button>
+<p id="p2">Animation</p>
+
+<div style="background:linear-gradient(135deg, #ab88ff, #f855cd);height:95px;width:140px;position:absolute;opacity:1;">
+  <p id="p1">Shreya</p>
+</div>
+<style>
+    #p1 {
+        font-size:larger;
+        text-align: center;
+    }
+    button {
+        background-color: rgb(176, 247, 252);
+        padding: 10px 20px;
+      font-size: 1em;
+      border-color: rgb(119, 255, 255);
+    }
+    #p2 {
+        font-family: Arial, sans-serif;
+      text-align: left;
+      margin-top: 40px;
+      color: rgb(1, 138, 92);
+    }
+
+</style>
+</body>
+</html>

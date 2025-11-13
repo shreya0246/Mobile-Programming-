@@ -2,14 +2,14 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #bca7ee, #e0b4d4);
+  background: linear-gradient(135deg, #bca7ee, #ffccf1);
   color: #2d2d2d;
   text-align: center;
 }
 
 /* Card styling */
 .card {
-  background: rgba(255, 224, 252, 0.9);
+  background: rgba(255, 237, 253, 0.9);
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
@@ -20,9 +20,9 @@ body {
 
 /* Buttons */
 button {
-  background: #c486e0;
-  background: linear-gradient(90deg, #a36edb 0%, #6c9bec 100%);
-  color: rgb(239, 191, 248);
+  background: #d373ff;
+  background: linear-gradient(90deg, #af6ff3 0%, #306fdd 100%);
+  color: rgb(250, 224, 255);
   border: none;
   padding: 12px 24px;
   border-radius: 12px;
@@ -41,7 +41,7 @@ input {
   width: 80%;
   padding: 10px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #f0efc0;
   margin-bottom: 12px;
 }
 
@@ -78,7 +78,7 @@ input {
   justify-content: space-between;
   align-items: center;
   padding: 12px 24px;
-  background: white;
+  background: rgb(210, 233, 252);
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
@@ -92,7 +92,7 @@ input {
 .list-card {
   display: flex;
   align-items: center;
-  background: rgba(255,255,255,0.9);
+  background: rgba(247, 234, 255, 0.9);
   border-radius: 12px;
   padding: 12px;
   margin: 12px 0;
