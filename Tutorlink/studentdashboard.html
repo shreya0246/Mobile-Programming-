@@ -7,14 +7,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav class="navbar">
-    <h2>TutorLink</h2>
-    <div class="nav-links">
-      <a href="#" id="homeLink">🏠 Home</a>
-      <a href="#" id="profileLink">👤 Profile</a>
-      <a href="#" id="teachersLink">👩‍🏫 Teachers</a>
-    </div>
-  </nav>
+ <nav class="navbar">
+  <h2>TutorLink</h2>
+  <div id="hamburgerMenu" class="hamburger">&#9776;</div>
+  <div class="nav-links">
+    <a href="#" id="homeLink">🏠 Home</a>
+    <a href="#" id="profileLink">👤 Profile</a>
+    <a href="#" id="teachersLink">👩‍🏫 Teachers</a>
+  </div>
+</nav>
+
 
   <!-- HOME SECTION -->
   <section id="homeSection" class="card fade-in">
@@ -42,7 +44,6 @@
       <p><strong>Bio:</strong> <span id="profileBio"></span></p>
       <button id="editProfileBtn">Edit Profile ✏️</button>
     </div>
-
     <!-- Editable form for updating -->
     <div id="profileEdit" style="display:none;">
       <input type="text" id="editName" placeholder="Full Name">
@@ -69,6 +70,30 @@
       <button id="sendBtn">Send</button>
     </div>
   </section>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const hamburger = document.getElementById("hamburgerMenu");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", () => {
+      if (navLinks.style.display === "block") {
+        navLinks.style.display = "none";
+      } else {
+        navLinks.style.display = "block";
+      }
+    });
+
+    // Reset when resizing
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) {
+        navLinks.style.display = "flex";
+      } else {
+        navLinks.style.display = "none";
+      }
+    });
+  });
+</script>
+
   <script src="script.js"defer></script>
 </body>
 </html>

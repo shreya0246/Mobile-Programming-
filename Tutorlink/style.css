@@ -1,35 +1,41 @@
-/* General layout */
+/* ===== Global Layout ===== */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #bca7ee, #ffccf1);
   color: #2d2d2d;
   text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-/* Card styling */
+/* ===== Card styling ===== */
 .card {
   background: rgba(255, 237, 253, 0.9);
   border-radius: 20px;
-  padding: 40px;
+  padding: 25px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  max-width: 500px;
-  margin: 100px auto;
+  width: 100%;
+  max-width: 450px;
+  margin: 50px auto;
   animation: fadeIn 0.6s ease-in;
+  box-sizing: border-box;
 }
 
-/* Buttons */
+/* ===== Buttons ===== */
 button {
-  background: #d373ff;
   background: linear-gradient(90deg, #af6ff3 0%, #306fdd 100%);
   color: rgb(250, 224, 255);
   border: none;
-  padding: 12px 24px;
+  padding: 12px 20px;
   border-radius: 12px;
-  margin: 10px;
+  margin: 10px auto;
   cursor: pointer;
   font-size: 1rem;
+  width: 100%;
+  max-width: 250px;
   transition: transform 0.2s, opacity 0.3s;
+  display: block;
 }
 
 button:hover {
@@ -37,34 +43,60 @@ button:hover {
   opacity: 0.9;
 }
 
-input {
-  width: 80%;
-  padding: 10px;
-  border-radius: 8px;
+/* ===== Inputs & Textareas ===== */
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
   border: 1px solid #f0efc0;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  resize: none;
 }
 
+/* ===== Headings & Highlight ===== */
 .highlight {
   color: #72386a;
   font-weight: bold;
 }
 
+h2, h3 {
+  margin-bottom: 12px;
+}
+
+/* ===== Hero Image ===== */
 .hero-img {
-  width: 120px;
+  width: 90px;
   margin-bottom: 20px;
 }
 
+/* ===== Choice Buttons ===== */
 .choice-buttons {
   display: flex;
-  justify-content: center;
-  gap: 15px;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
 }
 
+.choice-buttons button {
+  flex: 1;
+}
+
+/* Tablet/Desktop: side-by-side choice buttons */
+@media (min-width: 480px) {
+  .choice-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* ===== Hidden ===== */
 .hidden {
   display: none;
 }
 
+/* ===== Animations ===== */
 .fade-in {
   animation: fadeIn 0.8s ease-in;
 }
@@ -73,28 +105,136 @@ input {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ===== Navbar ===== */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 24px;
+  padding: 12px 20px;
   background: rgb(210, 233, 252);
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1000;
 }
 
 .nav-links a {
   color: #9c53e9;
   text-decoration: none;
-  margin-left: 15px;
+  margin-left: 12px;
   font-weight: 500;
+  font-size: 0.9rem;
 }
 
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+/* ===== List Cards ===== */
 .list-card {
   display: flex;
   align-items: center;
   background: rgba(247, 234, 255, 0.9);
   border-radius: 12px;
-  padding: 12px;
-  margin: 12px 0;
+  padding: 13px;
+  margin: 9px auto;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* ===== Desktop Grid Layout ===== */
+@media (min-width: 600px) {
+  .header {grid-area: 1 / span 6;}
+  .menu {grid-area: 2 / span 1;}
+  .content {grid-area: 2 / span 4;}
+  .facts {grid-area: 3 / span 6;}
+  .footer {grid-area: 4 / span 6;}
+}
+
+/* ===== Mobile Responsive Navbar ===== */
+@media (max-width: 768px) {
+  /* Show hamburger */
+  .hamburger {
+    display: block;
+  }
+
+  /* Hide nav links initially */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 180px;
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    text-align: left;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 10px 12px;
+    font-size: 16px;
+    margin: 5px 0;
+    text-align: left;
+  }
+
+  /* Make card fit small screens */
+  .card {
+    margin: 20px auto;
+    width: calc(100% - 20px);
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  /* Fix list cards on mobile */
+  .list-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+    margin: 10px auto;
+  }
+
+  /* Fix input and textarea stretching */
+  input, textarea {
+    width: 100% !important;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+
+  button {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+}
+
+/* ===== Extra small screens: stack choice buttons ===== */
+@media (max-width: 400px) {
+  .choice-buttons {
+    flex-direction: column;
+  }
+  
+  .navbar {
+    padding: 10px 15px;
+  }
+  
+  .card {
+    padding: 15px 10px;
+    margin: 15px auto;
+  }
+  
+  .nav-links {
+    right: 15px;
+    width: 160px;
+  }
 }
